@@ -21,7 +21,7 @@
   );
 }
 
-.square--x {
+.square--X {
   background-color: rgb(84, 84, 84);
   clip-path: polygon(
     20% 0%,
@@ -39,7 +39,7 @@
   );
 }
 
-.square--o {
+.square--O {
   background-color: #14bdac;
   border: solid rgb(242, 235, 211);
   border-radius: 100px;
