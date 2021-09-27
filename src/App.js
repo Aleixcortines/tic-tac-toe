@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Board from "./components/Board";
+import Score from "./components/Score";
 
 const App = () => {
   const winningPatterns = [
@@ -19,6 +20,11 @@ const App = () => {
     X: 0,
     O: 0,
   });
+
+  const resetGame = () => {
+    setTurn("X");
+    setSquares(Array(9).fill(null));
+  };
   const isWinner = (newSquares) => {
     for (let i = 0; i < winningPatterns.length; i++) {
       const [a, b, c] = winningPatterns[i];
@@ -55,10 +61,14 @@ const App = () => {
     } else {
       alert("Try other time, push button");
     }
+    setTimeout(() => {
+      resetGame();
+    }, 1500);
   };
   return (
     <div className="container">
       <Board squares={squares} onClick={handleClick} turn={turn} />
+      <Score scoreO={score.O} scoreX={score.X} />
     </div>
   );
 };
